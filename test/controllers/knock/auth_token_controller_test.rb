@@ -28,5 +28,19 @@ module Knock
       post :create, auth: { email: user.email, password: 'secret' }
       assert_response :created
     end
+
+    test "allows changing of top level params key" do
+      swap_resource(:auth_token) do
+        post :create, auth_token: { email: user.email, password: 'secret' }
+        assert_response :created
+      end
+    end
+
+    def swap_resource(value, &block)
+      original_value = Knock.resource
+      Knock.resource = value
+      block.call
+      Knock.resource = original_value
+    end
   end
 end

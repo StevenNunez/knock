@@ -208,6 +208,14 @@ If the algorithm you use requires a public key, you also need to set
 
 To enable cross-origin resource sharing, check out the [rack-cors](https://github.com/cyu/rack-cors) gem.
 
+## Params
+
+If you're working with a less than flexible front end apis, you can change the structure of `params`, and still support strong params.
+
+By default `Knock` is expecting params that like:
+
+`{auth: {username: "Steven", password: "Beef101"}}`
+
 ## Related links
 
 - [10 things you should know about tokens](https://auth0.com/blog/2014/01/27/ten-things-you-should-know-about-tokens-and-cookies/)
